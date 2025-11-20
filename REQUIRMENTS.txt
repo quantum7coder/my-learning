@@ -3,3 +3,4 @@ Mediapipe
 mysql.connector
 sys
 cv2
+tkinter
