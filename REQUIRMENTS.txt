@@ -4,3 +4,5 @@ mysql.connector
 sys
 cv2
 tkinter
+scikit-learn
+sklearn
