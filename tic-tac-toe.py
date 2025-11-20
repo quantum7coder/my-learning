@@ -32,14 +32,18 @@ def tic_tac_toe():
     m = int(input("Enter number of rows (m): "))
     n = int(input("Enter number of columns (n): "))
     k = int(input("Enter number of consecutive marks to win: "))
+
     board = [[" " for _ in range(n)] for _ in range(m)]
     players = [("User1", "X"), ("User2", "O")]
     total_moves = m * n
+
     print("\nGame Start!\n")
     print_board(board)
+
     for move in range(total_moves):
         player_name, symbol = players[move % 2]
         print(f"\n{player_name}'s turn ({symbol})")
+
         while True:
             try:
                 r = int(input(f"Enter row (0-{m-1}): "))
@@ -54,8 +58,16 @@ def tic_tac_toe():
                 print("Invalid input. Enter integers only.")
 
         print_board(board)
+
         if check_winner(board, symbol, k):
             print(f"\n{player_name} ({symbol}) WINS! 🎉")
             return
+
     print("\nIt's a DRAW!")
-tic_tac_toe()
+
+while True:
+    tic_tac_toe()
+    again = input("\nDo you want to play again? (y/n): ").strip().lower()
+    if again != "y":
+        print("Thanks for playing! 👋")
+        break
